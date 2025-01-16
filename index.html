@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GitHub Repositories</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header .site-navigation {
+      margin-top: 10px;
+    }
+
+    header .nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    header .nav li {
+      margin: 0 10px;
+    }
+
+    header .nav li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .repo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .repo {
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: calc(33% - 40px); /* Adjust to fit three cards per row */
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .repo h3 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    .repo p {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .repo a {
+      display: inline-block;
+      margin-top: 5px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .repo a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .repo {
+        width: calc(50% - 40px); /* Two cards per row */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .repo {
+        width: 100%; /* One card per row */
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header .nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header .nav li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-identity">
+      <h1><a href="#">Kevin Karanja Gits</a></h1>
+    </div>  
+    <nav class="site-navigation">
+      <ul class="nav">
+        <li><a href="#">Back to Kevin Karanja</a></li> 
+        <li><a href="https://github.com/kabrownie" target="_blank">Go to GitHub</a></li> 
+      </ul>
+    </nav>
+  </header>
+
+  <h2 style="text-align:center;">My GitHub Repositories</h2>
+  <p style="text-align:center;">Explore the repositories I've created and contributed to.</p>
+
+  <div class="repo-container" id="repo-container"></div>
+
+  <script>
+    // Replace with your GitHub username
+    const username = "kabrownie";
+
+    // Optional: Use your GitHub Personal Access Token here if you're making many requests
+    const token = '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'; // Make sure to keep this secure
+
+    async function fetchRepos() {
+      const url = `https://api.github.com/users/${username}/repos?visibility=public`;
+      const headers = token ? { Authorization: `token ${token}` } : {};
+
+      const response = await fetch(url, { headers });
+      const repos = await response.json();
+
+      const repoContainer = document.getElementById('repo-container');
+      repos.forEach(repo => {
+        const repoDiv = document.createElement('div');
+        repoDiv.classList.add('repo');
+
+        const repoName = document.createElement('h3');
+        repoName.innerText = repo.name;
+        
+        const repoDescription = document.createElement('p');
+        repoDescription.innerText = repo.description || 'No description available';
+
+        const repoLink = document.createElement('a');
+        repoLink.href = repo.html_url;
+        repoLink.target = '_blank';
+        repoLink.innerText = 'View on GitHub';
+
+        repoDiv.appendChild(repoName);
+        repoDiv.appendChild(repoDescription);
+        repoDiv.appendChild(repoLink);
+        repoContainer.appendChild(repoDiv);
+      });
+    }
+
+    // Fetch repositories when the page loads
+    window.onload = fetchRepos;
+  </script>
+
+</body>
+</html>
