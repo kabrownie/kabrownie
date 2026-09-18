@@ -1,14 +1,6 @@
 ### Hi, I'm kabrownie 👋
 
 I build open-source, privacy-respecting tools. My current focus is **[Hiiscript](https://github.com/kabrownie/HiiScript)** — a free, offline-first screenplay writer for Windows, Linux, and Android.
-
-## Why I built Hiiscript
-
-As a Blender animator, I rely on free, open-source, offline tools. I wanted the same for screenwriting.
-
-Most free screenwriters I tried were outdated, paid, or required a cloud account. I couldn’t find one that was free, open source, and truly offline — so I built Hiiscript.
-
-Hiiscript is an MIT-licensed, offline-first screenplay writer for Windows, Linux, and Android. Scripts, settings, characters, and scene suggestions stay on your device. No accounts, ads, analytics, or background uploads.
 ---
 
 ## 🎬 Featured project: Hiiscript
@@ -22,6 +14,11 @@ Hiiscript is an open-source screenplay editor built as a small Electron and Capa
 - **Portable exports** — Fountain and Markdown exports create text files you can take anywhere.
 - **Character & scene library** — Save, rename, delete, or transfer entries as JSON.
 - **Local PDF import** — Uses the open-source PDF.js library. PDFs are processed locally; no screenplay upload service is used.
+## Why I built Hiiscript
+
+As a Blender animator, I rely on free, open-source, offline tools. I wanted the same for screenwriting.
+
+Most free screenwriters I tried were outdated, paid, or required a cloud account. I couldn’t find one that was free, open source, and truly offline — so I built Hiiscript.
 
 **Get Hiiscript:**
 - [Project page](https://kabrownie.github.io/Hiiscript)
